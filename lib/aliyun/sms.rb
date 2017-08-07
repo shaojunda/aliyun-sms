@@ -3,7 +3,6 @@ require "openssl"
 require "base64"
 require "typhoeus"
 require "erb"
-require "uuid"
 include ERB::Util
 
 module Aliyun
@@ -114,7 +113,7 @@ module Aliyun
 
       # 生成短信唯一标识码，采用到微秒的时间戳
       def seed_signature_nonce
-        UUID.generate
+        SecureRandom.uuid
       end
     end
   end
